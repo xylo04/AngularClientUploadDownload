@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "UploadDownloadPOC": {
+    "AngularClientUploadDownload": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/UploadDownloadPOC",
+            "outputPath": "dist",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -66,18 +66,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "UploadDownloadPOC:build"
+            "browserTarget": "AngularClientUploadDownload:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "UploadDownloadPOC:build:production"
+              "browserTarget": "AngularClientUploadDownload:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "UploadDownloadPOC:build"
+            "browserTarget": "AngularClientUploadDownload:build"
           }
         },
         "test": {
@@ -114,18 +114,18 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "UploadDownloadPOC:serve"
+            "devServerTarget": "AngularClientUploadDownload:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "UploadDownloadPOC:serve:production"
+              "devServerTarget": "AngularClientUploadDownload:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "UploadDownloadPOC",
+  "defaultProject": "AngularClientUploadDownload",
   "cli": {
     "analytics": "286d4361-ad1a-4376-ac88-001dface36f4"
   }
