@@ -14,7 +14,7 @@ export class ImportComponent {
   }
 
   import($event: any): void {
-    const file = $event.path[0][0].files[0] as File;
+    const file = $event.target.files[0] as File;
     const fileReader = new FileReader();
     fileReader.onload = () => {
       this.fileNameImported.emit(file.name);
