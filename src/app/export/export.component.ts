@@ -13,4 +13,6 @@ export class ExportComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  export(): void {
+  }
 }
