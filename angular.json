@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "UploadDownloadPOC"
+    }
+  },
+  "defaultProject": "UploadDownloadPOC",
+  "cli": {
+    "analytics": "286d4361-ad1a-4376-ac88-001dface36f4"
+  }
 }
