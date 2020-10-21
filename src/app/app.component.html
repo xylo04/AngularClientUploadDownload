@@ -8,7 +8,5 @@
 <div *ngIf="fileName != null">
   <h1>{{fileName}}</h1>
   Type: "{{fileType}}"
-  <pre>
-    {{decoder.decode(fileContent)}}
-  </pre>
+  <pre>{{decoder.decode(fileContent)}}</pre>
 </div>
