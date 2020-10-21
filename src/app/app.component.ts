@@ -8,5 +8,6 @@ import {Component} from '@angular/core';
 export class AppComponent {
   fileName: string;
   fileType: string;
-  fileContent: string;
+  fileContent: ArrayBuffer;
+  decoder = new TextDecoder('utf8');
 }

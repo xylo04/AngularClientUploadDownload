@@ -8,7 +8,7 @@ import {Component, ElementRef, Input, ViewChild} from '@angular/core';
 export class ExportComponent {
   @Input() fileName = '';
   @Input() fileType = '';
-  @Input() fileContent = '';
+  @Input() fileContent: ArrayBuffer;
   @ViewChild('download') download: ElementRef<HTMLAnchorElement>;
 
   constructor() {

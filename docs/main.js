@@ -18,7 +18,6 @@ class ExportComponent {
     constructor() {
         this.fileName = '';
         this.fileType = '';
-        this.fileContent = '';
     }
     export() {
         const blob = new Blob([this.fileContent], { type: this.fileType });
@@ -105,9 +104,11 @@ class ImportComponent {
         fileReader.onload = () => {
             this.fileNameImported.emit(file.name);
             this.fileTypeImported.emit(file.type);
+            // this.fileContentImported.emit(fileReader.result as string);
             this.fileContentImported.emit(fileReader.result);
         };
-        fileReader.readAsText(file);
+        // fileReader.readAsText(file);
+        fileReader.readAsArrayBuffer(file);
     }
 }
 ImportComponent.ɵfac = function ImportComponent_Factory(t) { return new (t || ImportComponent)(); };
@@ -206,9 +207,12 @@ function AppComponent_div_2_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" Type: \"", ctx_r0.fileType, "\" ");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"]("    ", ctx_r0.fileContent, "\n  ");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"]("    ", ctx_r0.decoder.decode(ctx_r0.fileContent), "\n  ");
 } }
 class AppComponent {
+    constructor() {
+        this.decoder = new TextDecoder('utf8');
+    }
 }
 AppComponent.ɵfac = function AppComponent_Factory(t) { return new (t || AppComponent)(); };
 AppComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: AppComponent, selectors: [["app-root"]], decls: 3, vars: 4, consts: [[3, "fileNameImported", "fileTypeImported", "fileContentImported"], [3, "fileName", "fileType", "fileContent"], [4, "ngIf"]], template: function AppComponent_Template(rf, ctx) { if (rf & 1) {

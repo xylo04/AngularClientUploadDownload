@@ -8,7 +8,7 @@ import {Component, EventEmitter, Output} from '@angular/core';
 export class ImportComponent {
   @Output() fileNameImported = new EventEmitter<string>();
   @Output() fileTypeImported = new EventEmitter<string>();
-  @Output() fileContentImported = new EventEmitter<string>();
+  @Output() fileContentImported = new EventEmitter<ArrayBuffer>();
 
   constructor() {
   }
@@ -19,8 +19,10 @@ export class ImportComponent {
     fileReader.onload = () => {
       this.fileNameImported.emit(file.name);
       this.fileTypeImported.emit(file.type);
-      this.fileContentImported.emit(fileReader.result as string);
+      // this.fileContentImported.emit(fileReader.result as string);
+      this.fileContentImported.emit(fileReader.result as ArrayBuffer);
     };
-    fileReader.readAsText(file);
+    // fileReader.readAsText(file);
+    fileReader.readAsArrayBuffer(file);
   }
 }
