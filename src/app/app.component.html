@@ -1,12 +1,13 @@
 <app-import (fileNameImported)="fileName = $event"
             (fileTypeImported)="fileType = $event"
             (fileContentImported)="fileContent = $event"></app-import>
+
 <app-export [fileName]="fileName" [fileType]="fileType"
             [fileContent]="fileContent"></app-export>
 
-<div>
+<div *ngIf="fileName != null">
   <h1>{{fileName}}</h1>
-  {{fileType}}
+  Type: "{{fileType}}"
   <pre>
     {{fileContent}}
   </pre>

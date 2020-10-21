@@ -1,3 +1,3 @@
 <h1>Export</h1>
-<button [disabled]="fileName == ''" (click)="export()">Export</button>
+<button [disabled]="fileName == null" (click)="export()">Export</button>
 <a #download hidden></a>
