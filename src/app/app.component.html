@@ -1,5 +1,13 @@
-<app-import (importedFile)="fileContent = $event"></app-import>
-<app-export></app-export>
-<pre>
-  {{fileContent}}
-</pre>
+<app-import (fileNameImported)="fileName = $event"
+            (fileTypeImported)="fileType = $event"
+            (fileContentImported)="fileContent = $event"></app-import>
+<app-export [fileName]="fileName" [fileType]="fileType"
+            [fileContent]="fileContent"></app-export>
+
+<div>
+  <h1>{{fileName}}</h1>
+  {{fileType}}
+  <pre>
+    {{fileContent}}
+  </pre>
+</div>

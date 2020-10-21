@@ -6,7 +6,9 @@ import {Component, EventEmitter, Output} from '@angular/core';
   styleUrls: ['./import.component.scss']
 })
 export class ImportComponent {
-  @Output() importedFile = new EventEmitter<string>();
+  @Output() fileNameImported = new EventEmitter<string>();
+  @Output() fileTypeImported = new EventEmitter<string>();
+  @Output() fileContentImported = new EventEmitter<string>();
 
   constructor() {
   }
@@ -15,7 +17,9 @@ export class ImportComponent {
     const file = $event.path[0][0].files[0] as File;
     const fileReader = new FileReader();
     fileReader.onload = () => {
-      this.importedFile.emit(fileReader.result as string);
+      this.fileNameImported.emit(file.name);
+      this.fileTypeImported.emit(file.type);
+      this.fileContentImported.emit(fileReader.result as string);
     };
     fileReader.readAsText(file);
   }
